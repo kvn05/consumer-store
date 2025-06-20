@@ -1,14 +1,13 @@
-import mongoose, { Schema, type Document } from "mongoose"
+import mongoose, { Schema, type Document } from "mongoose";
 
 export interface IStudent extends Document {
-  name: string
-  rollNumber: string
-  email: string
-  standard: string // Changed from department to standard
-  year: number
-  balance: number
-  status: "active" | "inactive"
-  createdAt: Date
+  name: string;
+  rollNumber: string;
+  standard: string;
+  year: number;
+  balance: number;
+  status: "active" | "inactive";
+  createdAt: Date;
 }
 
 const StudentSchema = new Schema<IStudent>({
@@ -23,21 +22,15 @@ const StudentSchema = new Schema<IStudent>({
     unique: true,
     trim: true,
   },
-  email: {
-    type: String,
-    required: true,
-    trim: true,
-  },
   standard: {
-    // Changed from department
     type: String,
     required: true,
     trim: true,
   },
-  year: {
-    type: Number,
-    required: true,
-  },
+  // year: {
+  //   type: Number,
+  //   required: true,
+  // },
   balance: {
     type: Number,
     required: true,
@@ -53,6 +46,7 @@ const StudentSchema = new Schema<IStudent>({
     type: Date,
     default: Date.now,
   },
-})
+});
 
-export const Student = mongoose.models.Student || mongoose.model<IStudent>("Student", StudentSchema)
+export const Student =
+  mongoose.models.Student || mongoose.model<IStudent>("Student", StudentSchema);

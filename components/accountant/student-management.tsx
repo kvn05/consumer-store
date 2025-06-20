@@ -138,7 +138,6 @@ export default function StudentManagement() {
                   <SelectItem value="10th">10th Standard</SelectItem>
                   <SelectItem value="11th">11th Standard</SelectItem>
                   <SelectItem value="12th">12th Standard</SelectItem>
-                  <SelectItem value="Diploma">Diploma</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -211,7 +210,6 @@ export default function StudentManagement() {
                           </div>
                           <div className="ml-3">
                             <p className="text-sm font-medium text-gray-900">{student.name}</p>
-                            <p className="text-sm text-gray-500">{student.email}</p>
                           </div>
                         </div>
                       </td>

@@ -20,7 +20,6 @@ export default function AddStudentModal({ open, onOpenChange }: AddStudentModalP
   const [formData, setFormData] = useState({
     name: "",
     rollNumber: "",
-    email: "",
     standard: "",
     year: "",
     balance: "0",
@@ -58,7 +57,6 @@ export default function AddStudentModal({ open, onOpenChange }: AddStudentModalP
     setFormData({
       name: "",
       rollNumber: "",
-      email: "",
       standard: "",
       year: "",
       balance: "0",
@@ -68,13 +66,8 @@ export default function AddStudentModal({ open, onOpenChange }: AddStudentModalP
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!formData.name || !formData.rollNumber || !formData.email || !formData.standard || !formData.year) {
+    if (!formData.name || !formData.rollNumber || !formData.standard || !formData.year) {
       toast.error("Please fill in all required fields.")
-      return
-    }
-
-    if (!formData.email.includes("@")) {
-      toast.error("Please enter a valid email address.")
       return
     }
 
@@ -119,18 +112,6 @@ export default function AddStudentModal({ open, onOpenChange }: AddStudentModalP
           </div>
 
           <div>
-            <Label htmlFor="email">Email Address *</Label>
-            <Input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-              placeholder="student@hostel.edu"
-              required
-            />
-          </div>
-
-          <div>
             <Label htmlFor="standard">Standard *</Label>
             <Select
               value={formData.standard}
@@ -140,10 +121,16 @@ export default function AddStudentModal({ open, onOpenChange }: AddStudentModalP
                 <SelectValue placeholder="Select standard" />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="1st">1st Standard</SelectItem>
+                <SelectItem value="2nd">2nd Standard</SelectItem>
+                <SelectItem value="3rd">3rd Standard</SelectItem>
+                <SelectItem value="4th">4th Standard</SelectItem>
+                <SelectItem value="5th">5th Standard</SelectItem>
+                <SelectItem value="6th">6th Standard</SelectItem>
+                <SelectItem value="7th">7th Standard</SelectItem>
+                <SelectItem value="8th">8th Standard</SelectItem>
+                <SelectItem value="9th">9th Standard</SelectItem>
                 <SelectItem value="10th">10th Standard</SelectItem>
-                <SelectItem value="11th">11th Standard</SelectItem>
-                <SelectItem value="12th">12th Standard</SelectItem>
-                <SelectItem value="Diploma">Diploma</SelectItem>
               </SelectContent>
             </Select>
           </div>

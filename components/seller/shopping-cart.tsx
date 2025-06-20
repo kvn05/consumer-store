@@ -52,6 +52,10 @@ export default function ShoppingCart({
         }),
       })
 
+      console.log("response", response)
+      console.log("response", response.ok)
+      console.log("response", response.status)
+
       if (!response.ok) {
         const error = await response.json()
         throw new Error(error.message || "Failed to process transaction")
@@ -90,7 +94,7 @@ export default function ShoppingCart({
 
   const handleProcessTransaction = () => {
     if (!canCheckout) return
-    processTransactionMutation.mutate()
+    processTransactionMutation.mutate()   
   }
 
   const handleTransactionSuccess = () => {

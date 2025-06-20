@@ -2,8 +2,7 @@ export interface Student {
   id: string
   name: string
   rollNumber: string
-  email: string
-  standard: string // Changed from department
+  standard: string
   year: number
   balance: number
   status: "active" | "inactive"
@@ -13,11 +12,19 @@ export interface Student {
 export interface Product {
   id: string
   name: string
-  category: "food" | "stationery" | "daily-use" | "pooja"
+  category: string
   price: number
   stock: number
   lowStockThreshold: number
   barcode?: string
+  description?: string
+  isActive: boolean
+  createdAt: Date
+}
+
+export interface Category {
+  id: string
+  name: string
   description?: string
   isActive: boolean
   createdAt: Date
